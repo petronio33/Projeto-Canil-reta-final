@@ -72,7 +72,7 @@ public class JanelaCachorroController implements Initializable {
     
     private ObservableList<String> sexo
             = FXCollections.observableArrayList
-        ("Feminino","Masculino");
+        ("fêmea","Macho");
    
     private ObservableList<String> porte
             = FXCollections.observableArrayList

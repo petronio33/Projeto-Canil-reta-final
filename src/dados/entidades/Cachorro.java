@@ -125,6 +125,8 @@ public class Cachorro{
         }
         return true;
     }
-
+        public String toString(){
+        return nome;
+    }
 
 }

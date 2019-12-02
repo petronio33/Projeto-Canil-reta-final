@@ -114,7 +114,8 @@ public class PrincipalController implements Initializable {
         //Código para abrir uma nova Janela
         //Ler o FXML que representa a nova janela
         //(adicionar o throws)
-        Parent root = FXMLLoader.load(getClass()
+        Parent root;
+        root = FXMLLoader.load(getClass()
                 .getResource("/ui/FichaMedica/FichaMedica.fxml"));
         //Criando a cena
         Scene scene = new Scene(root);

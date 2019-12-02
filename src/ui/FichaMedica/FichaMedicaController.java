@@ -26,6 +26,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import servicos.CachorroServico;
 import servicos.FichaMedicaServico;
 
@@ -73,7 +74,7 @@ public class FichaMedicaController implements Initializable {
     private FichaMedica selecionado;
     @FXML
     private JFXTextField textFieldId;
-    
+    private Cachorro Cachorroselecionado;
 
     /**
      * Initializes the controller class.
@@ -198,6 +199,7 @@ public class FichaMedicaController implements Initializable {
         colVeterinario.setCellValueFactory(
                 new PropertyValueFactory("veterinario"));
         
+        
     }
 
     private void listarfichaMedicaTabela() {
@@ -232,9 +234,10 @@ public class FichaMedicaController implements Initializable {
     
     private void listarCachorro(){
        List<Cachorro> cachorros = cachorroServico.listar();
-       
-       
        comboBoxCachorro.setItems(FXCollections.observableArrayList(cachorros));
    }
+
+
+
 
 }

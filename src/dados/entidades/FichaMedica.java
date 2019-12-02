@@ -7,6 +7,7 @@ package dados.entidades;
 
 import java.time.LocalDate;
 import java.util.Objects;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,6 +17,7 @@ import javax.persistence.ManyToOne;
  *
  * @author IFNMG
  */
+@Entity
 public class FichaMedica {
       @Id
       @GeneratedValue(strategy = GenerationType.IDENTITY)
