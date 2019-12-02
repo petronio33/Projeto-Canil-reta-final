@@ -39,7 +39,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#abrirAdocao" prefHeight="100.0" prefWidth="200.0" text="Veterinário" textFill="#49035e" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#abrirAdocao" prefHeight="100.0" prefWidth="200.0" text="Adoção" textFill="#49035e" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <font>
                         <Font name="Arial Bold" size="16.0" />
                      </font>

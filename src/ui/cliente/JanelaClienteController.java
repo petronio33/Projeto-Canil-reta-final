@@ -138,6 +138,13 @@ public class JanelaClienteController implements Initializable {
     //Limpando o form
         textFieldId.setText("");
         textFieldNome.setText("");
+        textFieldCPF.setText("");
+        textFieldBairro.setText("");
+        textFieldTelefone.setText("");
+        textFieldEndereco.setText("");
+        textFieldCidade.setText("");
+        datePickerNascimento.getEditor().clear();
+
     }
     public void mensagemSucesso(String m) {
         Alert alerta = new Alert(Alert.AlertType.INFORMATION);

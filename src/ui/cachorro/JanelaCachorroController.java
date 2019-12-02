@@ -151,7 +151,10 @@ public class JanelaCachorroController implements Initializable {
         textFieldNome.setText(" ");
         textFieldRaca.setText(" ");
         textFieldObservacao.setText(" ");
-    }
+        comboBoxDono.getSelectionModel().clearSelection();
+        comboBoxPorte.getSelectionModel().clearSelection();
+        comboBoxSexo.getSelectionModel().clearSelection();
+                }
 
     @FXML
     private void editar(ActionEvent event) {

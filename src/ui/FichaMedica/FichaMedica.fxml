@@ -33,5 +33,6 @@
       </TableView>
       <JFXTextField fx:id="pesquisaNome" labelFloat="true" layoutX="15.0" layoutY="300.0" prefHeight="25.0" prefWidth="140.0" promptText="Pesquisa por nome:" />
       <Button layoutX="182.0" layoutY="300.0" mnemonicParsing="false" onAction="#pesquisar" text="Pesquisar" />
+      <JFXTextField fx:id="textFieldId" layoutY="2.0" prefHeight="5.0" prefWidth="29.0" />
    </children>
 </AnchorPane>
