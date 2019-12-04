@@ -7,6 +7,7 @@ package ui.cachorro;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import dados.entidades.Cachorro;
 import dados.entidades.Cliente;
@@ -85,6 +86,8 @@ public class JanelaCachorroController implements Initializable {
     private JFXButton botaopesquisar;
     @FXML
     private JFXTextField pesquisanome;
+    @FXML
+    private JFXDatePicker datePickerNascimento;
 
     /**
      * Initializes the controller class.
@@ -118,7 +121,11 @@ public class JanelaCachorroController implements Initializable {
                     comboBoxPorte.getValue().toString(),
                     comboBoxSexo.getValue().toString(),
                     textFieldObservacao.getText(),
-                    comboBoxDono.getValue());
+                    comboBoxDono.getValue(),
+                    datePickerNascimento.getValue());
+            
+            
+            
                     
 
             servico.salvar(c);
@@ -140,6 +147,7 @@ public class JanelaCachorroController implements Initializable {
                 selecionado.setPorte(comboBoxPorte.getValue().toString());
                 selecionado.setSexo(comboBoxSexo.getValue().toString());
                 selecionado.setDono(comboBoxDono.getValue());
+                selecionado.setDia(datePickerNascimento.getValue());
 
                 servico.editar(selecionado);
 
@@ -154,6 +162,7 @@ public class JanelaCachorroController implements Initializable {
         comboBoxDono.getSelectionModel().clearSelection();
         comboBoxPorte.getSelectionModel().clearSelection();
         comboBoxSexo.getSelectionModel().clearSelection();
+        datePickerNascimento.getEditor().clear();
                 }
 
     @FXML
@@ -168,6 +177,7 @@ public class JanelaCachorroController implements Initializable {
             comboBoxPorte.setValue(selecionado.getPorte().toString());
             comboBoxSexo.setValue(selecionado.getSexo().toString());
             comboBoxDono.setValue(selecionado.getDono());
+            datePickerNascimento.setValue(selecionado.getDia());
             
             
             
@@ -224,6 +234,7 @@ public class JanelaCachorroController implements Initializable {
                 new PropertyValueFactory("sexo"));
         colDono.setCellValueFactory(
                 new PropertyValueFactory("dono"));
+        
     }
 
     private void listarCachorroTabela() {

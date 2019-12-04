@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Separator?>
@@ -47,5 +48,6 @@
       <JFXComboBox fx:id="comboBoxPorte" layoutX="156.0" layoutY="68.0" prefHeight="25.0" prefWidth="151.0" promptText="Porte:" />
       <JFXButton fx:id="botaopesquisar" layoutX="171.0" layoutY="117.0" onAction="#pesquisar" text="Pesquisar" />
       <JFXTextField fx:id="pesquisanome" labelFloat="true" layoutX="25.0" layoutY="117.0" promptText="Nome:" />
+      <JFXDatePicker fx:id="datePickerNascimento" layoutX="600.0" layoutY="21.0" promptText="Data: " />
    </children>
 </AnchorPane>

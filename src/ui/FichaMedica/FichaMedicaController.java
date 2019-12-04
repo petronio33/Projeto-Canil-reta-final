@@ -236,8 +236,4 @@ public class FichaMedicaController implements Initializable {
        List<Cachorro> cachorros = cachorroServico.listar();
        comboBoxCachorro.setItems(FXCollections.observableArrayList(cachorros));
    }
-
-
-
-
 }

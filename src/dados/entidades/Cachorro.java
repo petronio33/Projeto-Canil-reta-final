@@ -5,6 +5,7 @@
  */
 package dados.entidades;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -25,6 +26,7 @@ public class Cachorro{
     private String porte;
     private String sexo;
     private String observacao;
+    private LocalDate dia;
 
     //jpa
     public Cachorro(){}
@@ -36,6 +38,19 @@ public class Cachorro{
         this.sexo = sexo;
         this.observacao = observacao;
         this.dono = dono;
+        this.dia = dia;
+    }
+
+    public Cachorro(String text, String text0, String toString, String toString0, String text1, Cliente value, LocalDate value0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public LocalDate getDia() {
+        return dia;
+    }
+
+    public void setDia(LocalDate dia) {
+        this.dia = dia;
     }
 
   
