@@ -73,7 +73,7 @@ public class JanelaCachorroController implements Initializable {
     
     private ObservableList<String> sexo
             = FXCollections.observableArrayList
-        ("fêmea","Macho");
+        ("F","M");
    
     private ObservableList<String> porte
             = FXCollections.observableArrayList
@@ -88,6 +88,8 @@ public class JanelaCachorroController implements Initializable {
     private JFXTextField pesquisanome;
     @FXML
     private JFXDatePicker datePickerNascimento;
+    @FXML
+    private TableColumn<?, ?> colData;
 
     /**
      * Initializes the controller class.
@@ -234,6 +236,8 @@ public class JanelaCachorroController implements Initializable {
                 new PropertyValueFactory("sexo"));
         colDono.setCellValueFactory(
                 new PropertyValueFactory("dono"));
+        colData.setCellValueFactory(
+                new PropertyValueFactory("dia"));
         
     }
 

@@ -19,13 +19,14 @@
       <Separator layoutX="7.0" layoutY="213.0" prefHeight="2.0" prefWidth="788.0" />
       <TableView fx:id="tabela" layoutX="7.0" layoutY="227.0" prefHeight="409.0" prefWidth="788.0">
         <columns>
-          <TableColumn fx:id="colId" prefWidth="61.0" text="Id:" />
-          <TableColumn fx:id="colNome" prefWidth="115.0" text="Nome:" />
+          <TableColumn fx:id="colId" prefWidth="43.0" text="Id:" />
+          <TableColumn fx:id="colNome" prefWidth="133.0" text="Nome:" />
             <TableColumn fx:id="colDono" prefWidth="155.0" text="Dono:" />
             <TableColumn fx:id="colRaca" minWidth="5.0" prefWidth="58.0" text="Raça:" />
             <TableColumn fx:id="colPorte" prefWidth="75.0" text="Porte:" />
-            <TableColumn fx:id="colSexo" prefWidth="93.0" text="Sexo:" />
-            <TableColumn fx:id="colObservacao" prefWidth="230.0" text="Observação:" />
+            <TableColumn fx:id="colSexo" prefWidth="37.0" text="Sexo:" />
+            <TableColumn fx:id="colObservacao" prefWidth="197.0" text="Observação:" />
+            <TableColumn fx:id="colData" prefWidth="89.0" text="Data:" />
         </columns>
       </TableView>
       <JFXButton layoutX="593.0" layoutY="175.0" onAction="#salvar" text="Salvar">
