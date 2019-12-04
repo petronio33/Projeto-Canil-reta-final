@@ -75,6 +75,8 @@ public class FichaMedicaController implements Initializable {
     @FXML
     private JFXTextField textFieldId;
     private Cachorro Cachorroselecionado;
+    @FXML
+    private JFXComboBox<Cachorro> comboC;
 
     /**
      * Initializes the controller class.
@@ -99,8 +101,16 @@ public class FichaMedicaController implements Initializable {
 
     @FXML
     private void salvar(ActionEvent event) {
+        
+        System.out.println("salvar");
+        
+        Object o = comboBoxCachorro.getValue();
+        Object c1 = comboC.getValue();
 
         if (textFieldId.getText().isEmpty()) {
+            
+            Cachorro c = comboBoxCachorro.getValue();
+            
             FichaMedica f = new FichaMedica(textFieldVeterinario.getText(),
                     datePickerAtendimento.getValue(),
                     textAreaAtendimentos.getText(),
@@ -148,7 +158,7 @@ public class FichaMedicaController implements Initializable {
         if (selecionado != null) {
             textAreaAtendimentos.setText(selecionado.getAtendimentos());
             textFieldVeterinario.setText(selecionado.getVeterinario());
-            comboBoxCachorro.setValue(selecionado.getCao());
+            //comboBoxCachorro.setValue(selecionado.getCao());
             
             
             ///listarCachorroTabela();
@@ -235,5 +245,6 @@ public class FichaMedicaController implements Initializable {
     private void listarCachorro(){
        List<Cachorro> cachorros = cachorroServico.listar();
        comboBoxCachorro.setItems(FXCollections.observableArrayList(cachorros));
+       comboC.setItems(FXCollections.observableArrayList(cachorros));
    }
 }

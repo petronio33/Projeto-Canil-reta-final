@@ -12,7 +12,6 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.FichaMedica.FichaMedicaController">
    <children>
-      <JFXComboBox fx:id="comboBoxCachorro" editable="true" focusColor="#410951" labelFloat="true" layoutX="24.0" layoutY="32.0" prefHeight="25.0" prefWidth="191.0" promptText="Cachorro" />
       <JFXTextArea fx:id="textFieldObservacao" editable="false" layoutX="21.0" layoutY="135.0" prefHeight="35.0" prefWidth="559.0" promptText="Obsrvações:" />
       <JFXTextField fx:id="textFieldSexo" editable="false" layoutX="24.0" layoutY="85.0" prefHeight="25.0" prefWidth="126.0" promptText="Sexo:" />
       <JFXTextField fx:id="textFieldPorte" editable="false" layoutX="169.0" layoutY="85.0" prefHeight="25.0" prefWidth="162.0" promptText="Porte:" />
@@ -33,6 +32,6 @@
       </TableView>
       <JFXTextField fx:id="pesquisaNome" labelFloat="true" layoutX="15.0" layoutY="300.0" prefHeight="25.0" prefWidth="140.0" promptText="Pesquisa por nome:" />
       <Button layoutX="182.0" layoutY="300.0" mnemonicParsing="false" onAction="#pesquisar" text="Pesquisar" />
-      <JFXTextField fx:id="textFieldId" layoutY="2.0" prefHeight="5.0" prefWidth="29.0" />
+      <JFXComboBox fx:id="comboC" layoutX="31.0" layoutY="32.0" prefHeight="25.0" prefWidth="189.0" />
    </children>
 </AnchorPane>

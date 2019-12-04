@@ -16,11 +16,11 @@ import javax.persistence.*;
  * @author IFNMG
  */
 @Entity
-public class Cachorro{
-    
-   @Id
+public class Cachorro {
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer  idCachorro;
+    private Integer idCachorro;
     private String raca;
     private String nome;
     private String porte;
@@ -29,7 +29,8 @@ public class Cachorro{
     private LocalDate dia;
 
     //jpa
-    public Cachorro(){}
+    public Cachorro() {
+    }
 
     public Cachorro(String raca, String nome, String porte, String sexo, String observacao, Cliente dono) {
         this.raca = raca;
@@ -53,10 +54,8 @@ public class Cachorro{
         this.dia = dia;
     }
 
-  
-            
-    @ManyToOne(optional=true)
-    private Cliente dono ;
+    @ManyToOne(optional = true)
+    private Cliente dono;
 
     public Cliente getDono() {
         return dono;
@@ -114,8 +113,6 @@ public class Cachorro{
         this.observacao = observacao;
     }
 
- 
-
     @Override
     public int hashCode() {
         int hash = 7;
@@ -140,7 +137,8 @@ public class Cachorro{
         }
         return true;
     }
-        public String toString(){
+
+    public String toString() {
         return nome;
     }
 

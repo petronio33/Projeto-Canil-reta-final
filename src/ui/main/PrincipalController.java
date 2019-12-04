@@ -83,7 +83,6 @@ public class PrincipalController implements Initializable {
         stage.show();
     }
 
-    @FXML
     private void abrirAdocao(ActionEvent event)throws IOException{
         //Código para abrir uma nova Janela
         //Ler o FXML que representa a nova janela
