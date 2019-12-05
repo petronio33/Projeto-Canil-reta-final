@@ -26,6 +26,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.MouseEvent;
 import servicos.CachorroServico;
 import servicos.FichaMedicaServico;
@@ -37,8 +38,7 @@ import servicos.FichaMedicaServico;
  */
 public class FichaMedicaController implements Initializable {
 
-    @FXML
-    private JFXComboBox<Cachorro> comboBoxCachorro;
+  
     @FXML
     private JFXTextArea textFieldObservacao;
     @FXML
@@ -66,10 +66,10 @@ public class FichaMedicaController implements Initializable {
     @FXML
     private JFXTextField pesquisaNome;
     
-     private FichaMedicaServico servico = new FichaMedicaServico();
-     private CachorroServico cachorroServico = new CachorroServico();    
+    private FichaMedicaServico servico = new FichaMedicaServico();
+    private CachorroServico cachorroServico = new CachorroServico();    
     private ObservableList<FichaMedica> dados
-            = FXCollections.observableArrayList();
+           = FXCollections.observableArrayList();
     
     private FichaMedica selecionado;
     @FXML
@@ -101,20 +101,15 @@ public class FichaMedicaController implements Initializable {
 
     @FXML
     private void salvar(ActionEvent event) {
-        
-        System.out.println("salvar");
-        
-        Object o = comboBoxCachorro.getValue();
-        Object c1 = comboC.getValue();
 
         if (textFieldId.getText().isEmpty()) {
             
-            Cachorro c = comboBoxCachorro.getValue();
+            
             
             FichaMedica f = new FichaMedica(textFieldVeterinario.getText(),
                     datePickerAtendimento.getValue(),
                     textAreaAtendimentos.getText(),
-                    comboBoxCachorro.getValue());
+                    comboC.getValue());
                     
 
             servico.salvar(f);
@@ -132,12 +127,12 @@ public class FichaMedicaController implements Initializable {
                 selecionado.setAtendimentos(textAreaAtendimentos.getText());
                 selecionado.setVeterinario(textFieldVeterinario.getText());
                 selecionado.setDataAtendimento(datePickerAtendimento.getValue());
-                selecionado.setCao(comboBoxCachorro.getValue());
+                selecionado.setCao(comboC.getValue());
                 
 
                 servico.editar(selecionado);
 
-                mensagemsucesso("Cachorro Atualizado!");
+                mensagemsucesso("Ficha Atualizado!");
                 listarfichaMedicaTabela();
 
             }
@@ -148,7 +143,7 @@ public class FichaMedicaController implements Initializable {
         textFieldPorte.setText("");
         textFieldRaca.setText("");
         textFieldSexo.setText("");
-        comboBoxCachorro.getSelectionModel().clearSelection();
+        comboC.getSelectionModel().clearSelection();
        
                 }
 
@@ -156,9 +151,10 @@ public class FichaMedicaController implements Initializable {
     private void editar(ActionEvent event) {
         selecionado = tabela.getSelectionModel().getSelectedItem();
         if (selecionado != null) {
+            textFieldId.setText(String.valueOf(selecionado.getIdFichaMedica()));
             textAreaAtendimentos.setText(selecionado.getAtendimentos());
             textFieldVeterinario.setText(selecionado.getVeterinario());
-            //comboBoxCachorro.setValue(selecionado.getCao());
+            comboC.setValue(selecionado.getCao());
             
             
             ///listarCachorroTabela();
@@ -182,7 +178,7 @@ public class FichaMedicaController implements Initializable {
 
                 mensagemsucesso("FichaMedica apagada!");
 
-                listarfichaMedicaTabela();
+                
 
             }
             listarfichaMedicaTabela();
@@ -244,7 +240,21 @@ public class FichaMedicaController implements Initializable {
     
     private void listarCachorro(){
        List<Cachorro> cachorros = cachorroServico.listar();
-       comboBoxCachorro.setItems(FXCollections.observableArrayList(cachorros));
        comboC.setItems(FXCollections.observableArrayList(cachorros));
    }
+
+    @FXML
+    private void CarregarCachorro(ActionEvent event) {
+       if (comboC.getValue()!=null){
+           Cachorroselecionado = comboC.getSelectionModel().getSelectedItem();
+       textFieldId.setText(String.valueOf(Cachorroselecionado.getIdCachorro()));
+       textFieldPorte.setText(String.valueOf(Cachorroselecionado.getPorte()));
+       textFieldRaca.setText(String.valueOf(Cachorroselecionado.getRaca()));
+       textFieldSexo.setText(String.valueOf(Cachorroselecionado.getSexo()));
+       textFieldObservacao.setText(String.valueOf(Cachorroselecionado.getObservacao()));
+       
+       
+       
+       }
+           }
 }

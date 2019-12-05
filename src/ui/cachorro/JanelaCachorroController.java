@@ -118,7 +118,8 @@ public class JanelaCachorroController implements Initializable {
     private void salvar(ActionEvent event) {
 
         if (textFieldId.getText().isEmpty()) {
-            Cachorro c = new Cachorro(textFieldRaca.getText(),
+            Cachorro c = new Cachorro(
+                    textFieldRaca.getText(),
                     textFieldNome.getText(),
                     comboBoxPorte.getValue().toString(),
                     comboBoxSexo.getValue().toString(),

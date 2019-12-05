@@ -20,8 +20,8 @@
       <JFXButton layoutX="581.0" layoutY="300.0" onAction="#salvar" text="Salvar" />
       <JFXButton layoutX="652.0" layoutY="300.0" onAction="#editar" text="Editar" />
       <JFXButton layoutX="710.0" layoutY="300.0" onAction="#excluir" text="Excluir" />
-      <JFXTextField fx:id="textFieldVeterinario" labelFloat="true" layoutX="246.0" layoutY="32.0" prefHeight="25.0" prefWidth="285.0" promptText="Veterinário:" />
-      <JFXDatePicker fx:id="datePickerAtendimento" layoutX="559.0" layoutY="32.0" prefHeight="25.0" prefWidth="140.0" promptText="Data Atendimento:" />
+      <JFXTextField fx:id="textFieldVeterinario" labelFloat="true" layoutX="295.0" layoutY="32.0" prefHeight="25.0" prefWidth="285.0" promptText="Veterinário:" />
+      <JFXDatePicker fx:id="datePickerAtendimento" layoutX="629.0" layoutY="32.0" prefHeight="25.0" prefWidth="140.0" promptText="Data Atendimento:" />
       <TableView fx:id="tabela" layoutX="24.0" layoutY="346.0" prefHeight="237.0" prefWidth="754.0">
         <columns>
           <TableColumn fx:id="colCachorro" prefWidth="91.0" text="Cachorro:" />
@@ -32,6 +32,7 @@
       </TableView>
       <JFXTextField fx:id="pesquisaNome" labelFloat="true" layoutX="15.0" layoutY="300.0" prefHeight="25.0" prefWidth="140.0" promptText="Pesquisa por nome:" />
       <Button layoutX="182.0" layoutY="300.0" mnemonicParsing="false" onAction="#pesquisar" text="Pesquisar" />
-      <JFXComboBox fx:id="comboC" layoutX="31.0" layoutY="32.0" prefHeight="25.0" prefWidth="189.0" />
+      <JFXComboBox fx:id="comboC" layoutX="88.0" layoutY="32.0" onAction="#CarregarCachorro" prefHeight="25.0" prefWidth="189.0" />
+      <JFXTextField fx:id="textFieldId" labelFloat="true" layoutX="14.0" layoutY="32.0" prefHeight="25.0" prefWidth="50.0" promptText="Id:" />
    </children>
 </AnchorPane>

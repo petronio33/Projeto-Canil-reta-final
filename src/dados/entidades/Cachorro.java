@@ -32,7 +32,7 @@ public class Cachorro {
     public Cachorro() {
     }
 
-    public Cachorro(String raca, String nome, String porte, String sexo, String observacao, Cliente dono) {
+    public Cachorro(String raca, String nome, String porte, String sexo, String observacao, Cliente dono, LocalDate dia) {
         this.raca = raca;
         this.nome = nome;
         this.porte = porte;
@@ -42,10 +42,7 @@ public class Cachorro {
         this.dia = dia;
     }
 
-    public Cachorro(String text, String text0, String toString, String toString0, String text1, Cliente value, LocalDate value0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+  
     public LocalDate getDia() {
         return dia;
     }
