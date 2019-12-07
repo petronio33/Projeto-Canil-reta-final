@@ -70,16 +70,14 @@ public class JanelaCachorroController implements Initializable {
 
     private ObservableList<Cachorro> dados
             = FXCollections.observableArrayList();
-    
+
     private ObservableList<String> sexo
-            = FXCollections.observableArrayList
-        ("F","M");
-   
+            = FXCollections.observableArrayList("F", "M");
+
     private ObservableList<String> porte
-            = FXCollections.observableArrayList
-        ("Pequeno","Médio","Grande");
-    
-     private ClienteServico clienteServico = new ClienteServico();
+            = FXCollections.observableArrayList("Pequeno", "Médio", "Grande");
+
+    private ClienteServico clienteServico = new ClienteServico();
 
     private Cachorro selecionado;
     @FXML
@@ -126,16 +124,25 @@ public class JanelaCachorroController implements Initializable {
                     textFieldObservacao.getText(),
                     comboBoxDono.getValue(),
                     datePickerNascimento.getValue());
-            
-            
-            
-                    
 
-            servico.salvar(c);
+            if (comboBoxDono.getValue() != null & datePickerNascimento.getValue() == null) {
 
-            mensagemsucesso("Cachorro salvo com sucesso");
+                mensagemDeErro("Insira uma data de adoção!");
 
-            listarCachorroTabela();
+            } else {
+                servico.salvar(c);
+
+                mensagemsucesso("Cachorro salvo com sucesso");
+                textFieldNome.setText(" ");
+                textFieldRaca.setText(" ");
+                textFieldObservacao.setText(" ");
+                comboBoxDono.getSelectionModel().clearSelection();
+                comboBoxPorte.getSelectionModel().clearSelection();
+                comboBoxSexo.getSelectionModel().clearSelection();
+                datePickerNascimento.getEditor().clear();
+
+                listarCachorroTabela();
+            }
 
         } else {
 
@@ -143,7 +150,7 @@ public class JanelaCachorroController implements Initializable {
                     = mensagemDeConfirmacao("Deseja efetuar as alterações?",
                             "Editar");
             if (btn.get() == ButtonType.OK) {
-                
+
                 selecionado.setNome(textFieldNome.getText());
                 selecionado.setRaca(textFieldRaca.getText());
                 selecionado.setObservacao(textFieldObservacao.getText());
@@ -159,14 +166,8 @@ public class JanelaCachorroController implements Initializable {
 
             }
         }
-        textFieldNome.setText(" ");
-        textFieldRaca.setText(" ");
-        textFieldObservacao.setText(" ");
-        comboBoxDono.getSelectionModel().clearSelection();
-        comboBoxPorte.getSelectionModel().clearSelection();
-        comboBoxSexo.getSelectionModel().clearSelection();
-        datePickerNascimento.getEditor().clear();
-                }
+
+    }
 
     @FXML
     private void editar(ActionEvent event) {
@@ -181,9 +182,7 @@ public class JanelaCachorroController implements Initializable {
             comboBoxSexo.setValue(selecionado.getSexo().toString());
             comboBoxDono.setValue(selecionado.getDono());
             datePickerNascimento.setValue(selecionado.getDia());
-            
-            
-            
+
             ///listarCachorroTabela();
         } else {
             mensagemDeErro("Selecione um Cachorro!");
@@ -239,7 +238,7 @@ public class JanelaCachorroController implements Initializable {
                 new PropertyValueFactory("dono"));
         colData.setCellValueFactory(
                 new PropertyValueFactory("dia"));
-        
+
     }
 
     private void listarCachorroTabela() {
@@ -270,10 +269,10 @@ public class JanelaCachorroController implements Initializable {
 
         tabela.setItems(dados);
     }
-   private void listarCliente(){
-       List<Cliente> clientes = clienteServico.listar();
-       
-       
-       comboBoxDono.setItems(FXCollections.observableArrayList(clientes));
-   }
+
+    private void listarCliente() {
+        List<Cliente> clientes = clienteServico.listar();
+
+        comboBoxDono.setItems(FXCollections.observableArrayList(clientes));
+    }
 }
