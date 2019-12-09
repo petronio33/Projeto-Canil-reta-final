@@ -247,7 +247,6 @@ public class FichaMedicaController implements Initializable {
     private void CarregarCachorro(ActionEvent event) {
        if (comboC.getValue()!=null){
            Cachorroselecionado = comboC.getSelectionModel().getSelectedItem();
-       textFieldId.setText(String.valueOf(Cachorroselecionado.getIdCachorro()));
        textFieldPorte.setText(String.valueOf(Cachorroselecionado.getPorte()));
        textFieldRaca.setText(String.valueOf(Cachorroselecionado.getRaca()));
        textFieldSexo.setText(String.valueOf(Cachorroselecionado.getSexo()));
