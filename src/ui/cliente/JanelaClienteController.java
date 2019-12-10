@@ -17,7 +17,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
 import servicos.ClienteServico;
 
 /**
@@ -43,10 +42,10 @@ public class JanelaClienteController implements Initializable {
     private JFXTextField textFieldBairro;
     @FXML
     private JFXTextField textFieldTelefone;
-    
+
     //Atributo para representar o servico
     private ClienteServico servico = new ClienteServico();
-    
+
     @FXML
     private TableView<Cliente> tabela;
     @FXML
@@ -63,11 +62,11 @@ public class JanelaClienteController implements Initializable {
     private TableColumn colEndereco;
     @FXML
     private TableColumn colBairro;
-    
+
     //Atributo que representa os dados para tabela
     private ObservableList<Cliente> dados
             = FXCollections.observableArrayList();
-    
+
     //Atributo que vai armazenar qual o Cliente 
     //foi selecionado na tabela
     private Cliente selecionado;
@@ -77,20 +76,19 @@ public class JanelaClienteController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        
+
         //Configure a tabela
         configurarTabela();
 
         //Carregue a lista de clientes na tabela
         listarClientesTabela();
-        
-    }    
+
+    }
 
     @FXML
     private void salvar(ActionEvent event) {
         //Verificar se está atualizando ou inserindo
-        if(textFieldId.getText().isEmpty()){ //inserindo
+        if (textFieldId.getText().isEmpty()) { //inserindo
             //Pega os dados do fomulário
             //e cria um objeto cliente
             Cliente a = new Cliente(textFieldNome.getText(),
@@ -103,22 +101,22 @@ public class JanelaClienteController implements Initializable {
 
             //Mandar o cliente para a camada de servico
             servico.salvar(a);
-            
+
             //Exibindo mensagem
             mensagemSucesso("Cliente salvo com sucesso!");
-            
+
             //Chama o metodo para atualizar a tabela
             listarClientesTabela();
-            
-        }else{ //atualizando o cliente
-           
+
+        } else { //atualizando o cliente
+
             //Pegando a resposta da confirmacao do usuario
-            Optional<ButtonType> btn = 
-                mensagemDeConfirmacao("Deseja mesmo salvar as alterações?",
-                      "EDITAR");
-            
+            Optional<ButtonType> btn
+                    = mensagemDeConfirmacao("Deseja mesmo salvar as alterações?",
+                            "EDITAR");
+
             //Se o botão OK foi pressionado
-            if(btn.get() == ButtonType.OK){
+            if (btn.get() == ButtonType.OK) {
                 //Pegar os novos dados do formulário e
                 //atualizar o meu cliente
                 selecionado.setNome(textFieldNome.getText());
@@ -128,18 +126,18 @@ public class JanelaClienteController implements Initializable {
                 selecionado.setCidade(textFieldCidade.getText());
                 selecionado.setCpf(textFieldCPF.getText());
                 selecionado.setData_nascimento(datePickerNascimento.getValue());
-                
+
                 //Mandando pra camada de serviço salvar as alterações
                 servico.editar(selecionado);
-                
+
                 //Exibindo mensagem
-                mensagemSucesso("Cliente atualizado com sucesso!"); 
-                
+                mensagemSucesso("Cliente atualizado com sucesso!");
+
                 //Chama o metodo para atualizar a tabela
-                 listarClientesTabela();
+                listarClientesTabela();
             }
-    }
-    //Limpando o form
+        }
+        //Limpando o form
         textFieldId.setText("");
         textFieldNome.setText("");
         textFieldCPF.setText("");
@@ -150,6 +148,7 @@ public class JanelaClienteController implements Initializable {
         datePickerNascimento.getEditor().clear();
 
     }
+
     public void mensagemSucesso(String m) {
         Alert alerta = new Alert(Alert.AlertType.INFORMATION);
         alerta.setTitle("SUCESSO!");
@@ -157,10 +156,11 @@ public class JanelaClienteController implements Initializable {
         alerta.setContentText(m);
         alerta.showAndWait();
     }
-    
+
     /**
      * Exibe uma mensagem de erro
-     * @param m 
+     *
+     * @param m
      */
     public void mensagemErro(String m) {
         Alert alerta = new Alert(Alert.AlertType.ERROR);
@@ -169,11 +169,10 @@ public class JanelaClienteController implements Initializable {
         alerta.setContentText(m);
         alerta.showAndWait();
     }
-    
-     /**
-     * Mostra uma caixa com uma mensagem de confirmação
-     * onde a pessoa vai poder responder se deseja realizar
-     * uma ação
+
+    /**
+     * Mostra uma caixa com uma mensagem de confirmação onde a pessoa vai poder
+     * responder se deseja realizar uma ação
      */
     private Optional<ButtonType> mensagemDeConfirmacao(
             String mensagem, String titulo) {
@@ -183,7 +182,7 @@ public class JanelaClienteController implements Initializable {
         alert.setContentText(mensagem);
         return alert.showAndWait();
     }
-    
+
     /**
      * Fazendo configuração das colunas da tabeça
      */
@@ -228,9 +227,8 @@ public class JanelaClienteController implements Initializable {
 
         //Jogando os dados na tabela
         tabela.setItems(dados);
-    
+
     }
-    
 
     @FXML
     private void editar(ActionEvent event) {
@@ -243,55 +241,53 @@ public class JanelaClienteController implements Initializable {
             //Pegar os dados do cliente e jogar nos campos do
             //formulario
             textFieldId.setText(
-                    String.valueOf( selecionado.getIdCliente() ) );
-            textFieldNome.setText( selecionado.getNome() );
+                    String.valueOf(selecionado.getIdCliente()));
+            textFieldNome.setText(selecionado.getNome());
             textFieldBairro.setText(selecionado.getBairro());
             textFieldCPF.setText(selecionado.getCpf());
             textFieldCidade.setText(selecionado.getCidade());
             textFieldEndereco.setText(selecionado.getEndereco());
             textFieldTelefone.setText(selecionado.getTelefone());
             datePickerNascimento.setValue(selecionado.getData_nascimento());
-        }else{ //não tem cliente selecionado na tabela
+        } else { //não tem cliente selecionado na tabela
             mensagemErro("Selecione um cliente!");
-         listarClientesTabela();
+            listarClientesTabela();
         }
 
     }
-    
 
     @FXML
     private void excluir(ActionEvent event) {
         //Pegar o cliente que foi selecionado na tabela
         selecionado = tabela.getSelectionModel()
                 .getSelectedItem();
-        
+
         //Verifico se tem cliente selecionado
-        if(selecionado != null){ //existe cliente selecionado
-            
+        if (selecionado != null) { //existe cliente selecionado
+
             //Pegando a resposta da confirmacao do usuario
-            Optional<ButtonType> btn = 
-                mensagemDeConfirmacao("Deseja mesmo excluir?",
-                      "EXCLUIR");
-            
+            Optional<ButtonType> btn
+                    = mensagemDeConfirmacao("Deseja mesmo excluir?",
+                            "EXCLUIR");
+
             //Verificando se apertou o OK
-            if(btn.get() == ButtonType.OK){
-                
+            if (btn.get() == ButtonType.OK) {
+
                 //Manda para a camada de serviço excluir
                 servico.excluir(selecionado);
-                
+
                 //mostrar mensagem de sucesso
                 mensagemSucesso("Cliente excluído com sucesso!");
-                
+
                 //Atualizar a tabela
-                listarClientesTabela();              
-                
+                listarClientesTabela();
+
             }
-            
-        }else{
+
+        } else {
             mensagemErro("Selecione um cliente!.");
         }
-        
-    
+
     }
-    
+
 }

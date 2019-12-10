@@ -7,7 +7,7 @@ import javax.persistence.TypedQuery;
 import util.JPAUtil;
 
 public class ClienteDAO {
-    
+
     /**
      * Salvar o cliente no BD
      */
@@ -28,8 +28,8 @@ public class ClienteDAO {
     }
 
     /**
-     * Retorna uma lista com todos os cliente que estejam cadastrados no banco de
-     * dados
+     * Retorna uma lista com todos os cliente que estejam cadastrados no banco
+     * de dados
      *
      * @return
      */
@@ -54,29 +54,29 @@ public class ClienteDAO {
 
         //Pegando o gerenciador de acesso ao BD
         EntityManager gerenciador = JPAUtil.getGerenciador();
-        
+
         //Iniciar a transação
         gerenciador.getTransaction().begin();
 
         //Mandar sincronizar as alterações 
         gerenciador.merge(a);
-        
+
         //Commit na transação
         gerenciador.getTransaction().commit();
 
     }
-    
+
     /**
      * Exclui o cliente do BD
      */
-    public void excluir(Cliente a){
-        
+    public void excluir(Cliente a) {
+
         //Pegando o gerenciador de acesso ao BD
         EntityManager gerenciador = JPAUtil.getGerenciador();
-        
+
         //Iniciar a transação
         gerenciador.getTransaction().begin();
-        
+
         //Para excluir tem que dar o merge primeiro para 
         //sincronizar o ator do BD com o cliente que foi
         //selecionado na tela
@@ -84,9 +84,9 @@ public class ClienteDAO {
 
         //Mandar sincronizar as alterações 
         gerenciador.remove(a);
-        
+
         //Commit na transação
         gerenciador.getTransaction().commit();
-        
+
     }
 }

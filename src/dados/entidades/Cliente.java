@@ -9,23 +9,23 @@ import javax.persistence.Id;
 
 @Entity
 public class Cliente {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idCliente; 
+    private Integer idCliente;
     private String nome;
     private String cpf;
     private LocalDate data_nascimento;
-    private  String endereco;
-    private  String cidade;
-    private  String bairro;
-    private  String telefone;
-    
-//Construtor vazio da JPA (OBRIGATÓRIO)
-    public Cliente(){}
-    
-    //Construtor
+    private String endereco;
+    private String cidade;
+    private String bairro;
+    private String telefone;
 
+//Construtor vazio da JPA (OBRIGATÓRIO)
+    public Cliente() {
+    }
+
+    //Construtor
     public Cliente(String nome, String cpf, LocalDate data_nascimento,
             String endereco, String cidade, String bairro, String telefone) {
         this.nome = nome;
@@ -36,8 +36,6 @@ public class Cliente {
         this.bairro = bairro;
         this.telefone = telefone;
     }
-    
-    
 
     public String getTelefone() {
         return telefone;
@@ -127,10 +125,9 @@ public class Cliente {
         }
         return true;
     }
-    
-    public String toString(){
+
+    public String toString() {
         return nome;
     }
- 
+
 }
-  

@@ -9,30 +9,27 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-
 public class PrincipalController implements Initializable {
-    
+
     private Label label;
-    
+
     private void handleButtonAction(ActionEvent event) {
         System.out.println("OK");
         label.setText("OK");
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }   
-    
+    }
+
     @FXML
-    private void abrirCadastroCliente(ActionEvent event)throws IOException{
+    private void abrirCadastroCliente(ActionEvent event) throws IOException {
         //Código para abrir uma nova Janela
         //Ler o FXML que representa a nova janela
         //(adicionar o throws)
@@ -46,19 +43,19 @@ public class PrincipalController implements Initializable {
         stage.setTitle("Cadastro de Cliente");
         //Adicionando a cena na janela
         stage.setScene(scene);
-        
+
         //Configurando o MODALITY
         //Diz respeito ao comportamento das janelas anteriores
         //quando essa for mostrada
         //Para bloquear interação com as janelas anteriores
         stage.initModality(Modality.APPLICATION_MODAL);
-        
+
         //Mostrando a nova janela
         stage.show();
     }
 
     @FXML
-    private void abrirCadastroCachorro(ActionEvent event)throws IOException{
+    private void abrirCadastroCachorro(ActionEvent event) throws IOException {
         //Código para abrir uma nova Janela
         //Ler o FXML que representa a nova janela
         //(adicionar o throws)
@@ -72,18 +69,18 @@ public class PrincipalController implements Initializable {
         stage.setTitle("Cadastro de Cachorro");
         //Adicionando a cena na janela
         stage.setScene(scene);
-        
+
         //Configurando o MODALITY
         //Diz respeito ao comportamento das janelas anteriores
         //quando essa for mostrada
         //Para bloquear interação com as janelas anteriores
         stage.initModality(Modality.APPLICATION_MODAL);
-        
+
         //Mostrando a nova janela
         stage.show();
     }
 
-    private void abrirAdocao(ActionEvent event)throws IOException{
+    private void abrirAdocao(ActionEvent event) throws IOException {
         //Código para abrir uma nova Janela
         //Ler o FXML que representa a nova janela
         //(adicionar o throws)
@@ -97,19 +94,19 @@ public class PrincipalController implements Initializable {
         stage.setTitle("Adoção!");
         //Adicionando a cena na janela
         stage.setScene(scene);
-        
+
         //Configurando o MODALITY
         //Diz respeito ao comportamento das janelas anteriores
         //quando essa for mostrada
         //Para bloquear interação com as janelas anteriores
         stage.initModality(Modality.APPLICATION_MODAL);
-        
+
         //Mostrando a nova janela
         stage.show();
     }
 
     @FXML
-    private void AbrirFichamedica(ActionEvent event)  throws IOException{
+    private void AbrirFichamedica(ActionEvent event) throws IOException {
         //Código para abrir uma nova Janela
         //Ler o FXML que representa a nova janela
         //(adicionar o throws)
@@ -124,16 +121,15 @@ public class PrincipalController implements Initializable {
         stage.setTitle("Cadastro de Ficha Medica");
         //Adicionando a cena na janela
         stage.setScene(scene);
-        
+
         //Configurando o MODALITY
         //Diz respeito ao comportamento das janelas anteriores
         //quando essa for mostrada
         //Para bloquear interação com as janelas anteriores
         stage.initModality(Modality.APPLICATION_MODAL);
-        
+
         //Mostrando a nova janela
         stage.show();
     }
-    
-    
+
 }

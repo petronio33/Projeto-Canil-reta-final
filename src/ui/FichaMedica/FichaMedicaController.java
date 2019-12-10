@@ -25,8 +25,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.ContextMenuEvent;
-import javafx.scene.input.MouseEvent;
 import servicos.CachorroServico;
 import servicos.FichaMedicaServico;
 
@@ -37,7 +35,6 @@ import servicos.FichaMedicaServico;
  */
 public class FichaMedicaController implements Initializable {
 
-  
     @FXML
     private JFXTextArea textFieldObservacao;
     @FXML
@@ -62,12 +59,12 @@ public class FichaMedicaController implements Initializable {
     private TableColumn colDataAtendimento;
     @FXML
     private TableColumn colAtendimentos;
-    
+
     private FichaMedicaServico servico = new FichaMedicaServico();
-    private CachorroServico cachorroServico = new CachorroServico();    
+    private CachorroServico cachorroServico = new CachorroServico();
     private ObservableList<FichaMedica> dados
-           = FXCollections.observableArrayList();
-    
+            = FXCollections.observableArrayList();
+
     private FichaMedica selecionado;
     @FXML
     private JFXTextField textFieldId;
@@ -78,7 +75,6 @@ public class FichaMedicaController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    
     public void mensagemDeErro(String MDE) {
         Alert cuidado = new Alert(Alert.AlertType.ERROR);
         cuidado.setTitle("Erro!");
@@ -87,27 +83,24 @@ public class FichaMedicaController implements Initializable {
         cuidado.showAndWait();
 
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         configurarTabela();
         listarfichaMedicaTabela();
         listarCachorro();
-    }    
+    }
 
     @FXML
     private void salvar(ActionEvent event) {
 
         if (textFieldId.getText().isEmpty()) {
-            
-            
-            
+
             FichaMedica f = new FichaMedica(textFieldVeterinario.getText(),
                     datePickerAtendimento.getValue(),
                     textAreaAtendimentos.getText(),
                     comboC.getValue());
-                    
 
             servico.salvar(f);
 
@@ -125,7 +118,6 @@ public class FichaMedicaController implements Initializable {
                 selecionado.setVeterinario(textFieldVeterinario.getText());
                 selecionado.setDataAtendimento(datePickerAtendimento.getValue());
                 selecionado.setCao(comboC.getValue());
-                
 
                 servico.editar(selecionado);
 
@@ -141,8 +133,8 @@ public class FichaMedicaController implements Initializable {
         textFieldRaca.setText("");
         textFieldSexo.setText("");
         comboC.getSelectionModel().clearSelection();
-       
-                }
+
+    }
 
     @FXML
     private void editar(ActionEvent event) {
@@ -153,8 +145,7 @@ public class FichaMedicaController implements Initializable {
             textFieldVeterinario.setText(selecionado.getVeterinario());
             comboC.setValue(selecionado.getCao());
             datePickerAtendimento.setValue(selecionado.getDataAtendimento());
-            
-            
+
             ///listarCachorroTabela();
         } else {
             mensagemDeErro("Selecione um Cachorro!");
@@ -175,8 +166,6 @@ public class FichaMedicaController implements Initializable {
                 servico.excluir(selecionado);
 
                 mensagemsucesso("FichaMedica apagada!");
-
-                
 
             }
             listarfichaMedicaTabela();
@@ -202,8 +191,7 @@ public class FichaMedicaController implements Initializable {
                 new PropertyValueFactory("dataAtendimento"));
         colVeterinario.setCellValueFactory(
                 new PropertyValueFactory("veterinario"));
-        
-        
+
     }
 
     private void listarfichaMedicaTabela() {
@@ -224,25 +212,21 @@ public class FichaMedicaController implements Initializable {
         return alert.showAndWait();
     }
 
-  
-    
-    
-    private void listarCachorro(){
-       List<Cachorro> cachorros = cachorroServico.listar();
-       comboC.setItems(FXCollections.observableArrayList(cachorros));
-   }
+    private void listarCachorro() {
+        List<Cachorro> cachorros = cachorroServico.listar();
+        comboC.setItems(FXCollections.observableArrayList(cachorros));
+    }
 
     @FXML
     private void CarregarCachorro(ActionEvent event) {
-       if (comboC.getValue()!=null){
-           Cachorroselecionado = comboC.getSelectionModel().getSelectedItem();
-       textFieldPorte.setText(String.valueOf(Cachorroselecionado.getPorte()));
-       textFieldRaca.setText(String.valueOf(Cachorroselecionado.getRaca()));
-       textFieldSexo.setText(String.valueOf(Cachorroselecionado.getSexo()));
-       textFieldObservacao.setText(String.valueOf(Cachorroselecionado.getObservacao()));
-       
-       
-       
-       }
-           }
+        if (comboC.getValue() != null) {
+            Cachorroselecionado = comboC.getSelectionModel().getSelectedItem();
+            textFieldPorte.setText(String.valueOf(Cachorroselecionado.getPorte()));
+            textFieldRaca.setText(String.valueOf(Cachorroselecionado.getRaca()));
+            textFieldSexo.setText(String.valueOf(Cachorroselecionado.getSexo()));
+            textFieldObservacao.setText(String.valueOf(Cachorroselecionado.getObservacao()));
+        }
+
+    }
+
 }

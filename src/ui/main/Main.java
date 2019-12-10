@@ -17,17 +17,16 @@ import javafx.stage.Stage;
  * @author IFNMG
  */
 public class Main extends Application {
-    
+
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Principal.fxml"));
-        
+
         Scene scene = new Scene(root);
-         stage.getIcons().add(new Image("/ui/imagens/dog-paw.png"));
+        stage.getIcons().add(new Image("/ui/imagens/dog-paw.png"));
         //Abrir maximizado
         //stage.setMaximized(true);
-        
-        
+
         stage.setTitle("CANIL");
         stage.setScene(scene);
         stage.show();
@@ -39,5 +38,5 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

@@ -19,15 +19,17 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class FichaMedica {
-      @Id
-      @GeneratedValue(strategy = GenerationType.IDENTITY)
-      private Integer idFichaMedica;
-      private String veterinario;
-      private LocalDate dataAtendimento;
-      private String atendimentos;
-      
-      //jpa
-    public FichaMedica(){}
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idFichaMedica;
+    private String veterinario;
+    private LocalDate dataAtendimento;
+    private String atendimentos;
+
+    //jpa
+    public FichaMedica() {
+    }
 
     public FichaMedica(String veterinario, LocalDate dataAtendimento, String atendimentos, Cachorro cao) {
         this.veterinario = veterinario;
@@ -35,8 +37,8 @@ public class FichaMedica {
         this.atendimentos = atendimentos;
         this.cao = cao;
     }
-    
-    @ManyToOne(optional=true)
+
+    @ManyToOne(optional = true)
     private Cachorro cao;
 
     public Integer getIdFichaMedica() {
@@ -103,6 +105,5 @@ public class FichaMedica {
         }
         return true;
     }
-    
-    
+
 }

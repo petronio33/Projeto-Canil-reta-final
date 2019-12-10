@@ -7,9 +7,10 @@ import javax.persistence.TypedQuery;
 import util.JPAUtil;
 
 public class CachorroDAO {
-    
+
     /**
      * Salvar o Cachorro no BD
+     *
      * @param c
      */
     public void salvar(Cachorro c) {
@@ -29,8 +30,8 @@ public class CachorroDAO {
     }
 
     /**
-     * Retorna uma lista com todos os cliente que estejam cadastrados no banco de
-     * dados
+     * Retorna uma lista com todos os cliente que estejam cadastrados no banco
+     * de dados
      *
      * @return
      */
@@ -55,30 +56,31 @@ public class CachorroDAO {
 
         //Pegando o gerenciador de acesso ao BD
         EntityManager gerenciador = JPAUtil.getGerenciador();
-        
+
         //Iniciar a transação
         gerenciador.getTransaction().begin();
 
         //Mandar sincronizar as alterações 
         gerenciador.merge(c);
-        
+
         //Commit na transação
         gerenciador.getTransaction().commit();
 
     }
-    
+
     /**
      * Exclui o Cachorro do BD
+     *
      * @param c
      */
-    public void excluir(Cachorro c){
-        
+    public void excluir(Cachorro c) {
+
         //Pegando o gerenciador de acesso ao BD
         EntityManager gerenciador = JPAUtil.getGerenciador();
-        
+
         //Iniciar a transação
         gerenciador.getTransaction().begin();
-        
+
         //Para excluir tem que dar o merge primeiro para 
         //sincronizar o ator do BD com o ator que foi
         //selecionado na tela
@@ -86,29 +88,25 @@ public class CachorroDAO {
 
         //Mandar sincronizar as alterações 
         gerenciador.remove(c);
-        
+
         //Commit na transação
         gerenciador.getTransaction().commit();
-        
+
     }
-    
-    public List<Cachorro> buscarpelonome(String nomec){
-         
-        
+
+    public List<Cachorro> buscarpelonome(String nomec) {
+
 //Pegando o gerenciador de acesso ao BD
         EntityManager gerenciador = JPAUtil.getGerenciador();
 
-       
-       TypedQuery<Cachorro> consulta = gerenciador.createQuery(
-            "Select a from Cachorro a where a.nome  like :nome ", 
-            Cachorro.class);
+        TypedQuery<Cachorro> consulta = gerenciador.createQuery(
+                "Select a from Cachorro a where a.nome  like :nome ",
+                Cachorro.class);
         //substituindo o parametro :nome pelo valor da variavel nomec
-               
-            consulta.setParameter("nome",  nomec + "%");
-              
-            return consulta.getResultList();
+
+        consulta.setParameter("nome", nomec + "%");
+
+        return consulta.getResultList();
     }
-        
-    
-    
+
 }

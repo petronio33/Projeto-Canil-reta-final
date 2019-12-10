@@ -6,8 +6,6 @@
 package dados.entidades;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import javax.persistence.*;
 
@@ -42,7 +40,6 @@ public class Cachorro {
         this.dia = dia;
     }
 
-  
     public LocalDate getDia() {
         return dia;
     }

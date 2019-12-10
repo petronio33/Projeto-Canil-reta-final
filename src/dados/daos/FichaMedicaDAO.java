@@ -16,7 +16,8 @@ import util.JPAUtil;
  * @author Petrônio
  */
 public class FichaMedicaDAO {
- public void salvar(FichaMedica c) {
+
+    public void salvar(FichaMedica c) {
 
         //Pegando o gerenciador de acesso ao BD
         EntityManager gerenciador = JPAUtil.getGerenciador();
@@ -33,8 +34,8 @@ public class FichaMedicaDAO {
     }
 
     /**
-     * Retorna uma lista com todos as FichaMedica que estejam cadastradss no banco de
-     * dados
+     * Retorna uma lista com todos as FichaMedica que estejam cadastradss no
+     * banco de dados
      *
      * @return
      */
@@ -59,30 +60,31 @@ public class FichaMedicaDAO {
 
         //Pegando o gerenciador de acesso ao BD
         EntityManager gerenciador = JPAUtil.getGerenciador();
-        
+
         //Iniciar a transação
         gerenciador.getTransaction().begin();
 
         //Mandar sincronizar as alterações 
         gerenciador.merge(c);
-        
+
         //Commit na transação
         gerenciador.getTransaction().commit();
 
     }
-    
+
     /**
      * Exclui a FichaMedica do BD
+     *
      * @param c
      */
-    public void excluir(FichaMedica c){
-        
+    public void excluir(FichaMedica c) {
+
         //Pegando o gerenciador de acesso ao BD
         EntityManager gerenciador = JPAUtil.getGerenciador();
-        
+
         //Iniciar a transação
         gerenciador.getTransaction().begin();
-        
+
         //Para excluir tem que dar o merge primeiro para 
         //sincronizar a FichaMedica do BD com o ator que foi
         //selecionado na tela
@@ -90,28 +92,24 @@ public class FichaMedicaDAO {
 
         //Mandar sincronizar as alterações 
         gerenciador.remove(c);
-        
+
         //Commit na transação
         gerenciador.getTransaction().commit();
-        
+
     }
-    
-    public List<FichaMedica> buscarpelonome(String nomec){
-         
-        
+
+    public List<FichaMedica> buscarpelonome(String nomec) {
+
 //Pegando o gerenciador de acesso ao BD
         EntityManager gerenciador = JPAUtil.getGerenciador();
 
-       
-       TypedQuery<FichaMedica> consulta = gerenciador.createNamedQuery
-        ("Select a from FichaMedica a where a.nome  like :nome ",
-            
-            FichaMedica.class);
+        TypedQuery<FichaMedica> consulta = gerenciador.createNamedQuery("Select a from FichaMedica a where a.nome  like :nome ",
+                FichaMedica.class);
         //substituindo o parametro :nome pelo valor da variavel nomec
-               
-            consulta.setParameter("nome",  nomec + "%");
-              
-            return consulta.getResultList();
+
+        consulta.setParameter("nome", nomec + "%");
+
+        return consulta.getResultList();
     }
 
 }
