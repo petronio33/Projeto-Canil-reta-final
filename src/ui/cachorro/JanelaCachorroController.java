@@ -162,6 +162,16 @@ public class JanelaCachorroController implements Initializable {
                 servico.editar(selecionado);
 
                 mensagemsucesso("Cachorro Atualizado!");
+
+                //limpar os textos
+                textFieldNome.setText(" ");
+                textFieldRaca.setText(" ");
+                textFieldObservacao.setText(" ");
+                comboBoxDono.getSelectionModel().clearSelection();
+                comboBoxPorte.getSelectionModel().clearSelection();
+                comboBoxSexo.getSelectionModel().clearSelection();
+                datePickerNascimento.getEditor().clear();
+
                 listarCachorroTabela();
 
             }

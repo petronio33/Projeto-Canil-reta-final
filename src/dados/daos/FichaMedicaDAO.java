@@ -103,8 +103,9 @@ public class FichaMedicaDAO {
         EntityManager gerenciador = JPAUtil.getGerenciador();
 
        
-       TypedQuery<FichaMedica> consulta = gerenciador.createQuery(
-            "Select a from FichaMedica a where a.nome  like :nome ", 
+       TypedQuery<FichaMedica> consulta = gerenciador.createNamedQuery
+        ("Select a from FichaMedica a where a.nome  like :nome ",
+            
             FichaMedica.class);
         //substituindo o parametro :nome pelo valor da variavel nomec
                

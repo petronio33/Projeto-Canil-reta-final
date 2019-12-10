@@ -17,6 +17,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import servicos.ClienteServico;
 
 /**
@@ -76,11 +77,14 @@ public class JanelaClienteController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        
         //Configure a tabela
         configurarTabela();
 
         //Carregue a lista de clientes na tabela
         listarClientesTabela();
+        
     }    
 
     @FXML
@@ -246,6 +250,7 @@ public class JanelaClienteController implements Initializable {
             textFieldCidade.setText(selecionado.getCidade());
             textFieldEndereco.setText(selecionado.getEndereco());
             textFieldTelefone.setText(selecionado.getTelefone());
+            datePickerNascimento.setValue(selecionado.getData_nascimento());
         }else{ //não tem cliente selecionado na tabela
             mensagemErro("Selecione um cliente!");
          listarClientesTabela();

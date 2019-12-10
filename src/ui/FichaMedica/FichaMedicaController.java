@@ -12,7 +12,6 @@ import com.jfoenix.controls.JFXTextField;
 import dados.entidades.Cachorro;
 import dados.entidades.FichaMedica;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -63,8 +62,6 @@ public class FichaMedicaController implements Initializable {
     private TableColumn colDataAtendimento;
     @FXML
     private TableColumn colAtendimentos;
-    @FXML
-    private JFXTextField pesquisaNome;
     
     private FichaMedicaServico servico = new FichaMedicaServico();
     private CachorroServico cachorroServico = new CachorroServico();    
@@ -155,6 +152,7 @@ public class FichaMedicaController implements Initializable {
             textAreaAtendimentos.setText(selecionado.getAtendimentos());
             textFieldVeterinario.setText(selecionado.getVeterinario());
             comboC.setValue(selecionado.getCao());
+            datePickerAtendimento.setValue(selecionado.getDataAtendimento());
             
             
             ///listarCachorroTabela();
@@ -226,16 +224,7 @@ public class FichaMedicaController implements Initializable {
         return alert.showAndWait();
     }
 
-    @FXML
-    private void pesquisar(ActionEvent event) {
-        dados.clear();
-        String nome = pesquisaNome.getText();
-
-        List<FichaMedica> fichasmedicas = servico.buscarPeloNome(nome);
-        dados = FXCollections.observableArrayList(fichasmedicas);
-
-        tabela.setItems(dados);
-    }
+  
     
     
     private void listarCachorro(){

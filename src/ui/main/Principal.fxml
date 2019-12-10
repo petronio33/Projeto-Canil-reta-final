@@ -2,39 +2,67 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.main.PrincipalController">
-   <center>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #0111;" BorderPane.alignment="CENTER">
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.main.PrincipalController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0">
+         <image>
+            <Image url="@../imagens/dog-paw.png" />
+         </image>
+      </ImageView>
+      <VBox alignment="CENTER" layoutX="211.0" layoutY="96.0" prefHeight="208.0" prefWidth="179.0" style="-fx-background-color: #0111;">
          <children>
-            <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#abrirCadastroCliente" prefHeight="100.0" prefWidth="200.0" text="Cliente" textFill="#49035e">
+            <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#abrirCadastroCliente" opacity="0.85" prefHeight="97.0" prefWidth="179.0" text="Cliente" textFill="#49035e">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/my-profile-icon-3.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
-            <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#abrirCadastroCachorro" prefHeight="100.0" prefWidth="200.0" text="Cachorro" textFill="#49035e">
+            <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#abrirCadastroCachorro" opacity="0.85" prefHeight="100.0" prefWidth="200.0" text="Cachorro" textFill="#49035e">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/dog-icon-png-18.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
-            <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#AbrirFichamedica" prefHeight="100.0" prefWidth="200.0" text="Ficha Médica" textFill="#49035e">
+            <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#AbrirFichamedica" opacity="0.85" prefHeight="100.0" prefWidth="200.0" text="Ficha Médica" textFill="#49035e">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/medical-chart-icon-22.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
          </children>
       </VBox>
-   </center>
-</BorderPane>
+   </children>
+</AnchorPane>

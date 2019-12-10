@@ -5,17 +5,25 @@
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.cachorro.JanelaCachorroController">
    <children>
-      <JFXTextField fx:id="textFieldId" editable="false" labelFloat="true" layoutX="25.0" layoutY="21.0" prefHeight="25.0" prefWidth="78.0" promptText="Id:" />
-      <JFXTextField fx:id="textFieldNome" labelFloat="true" layoutX="140.0" layoutY="21.0" prefHeight="25.0" prefWidth="182.0" promptText="Nome:" />
-      <JFXTextField fx:id="textFieldRaca" labelFloat="true" layoutX="25.0" layoutY="68.0" prefHeight="25.0" prefWidth="115.0" promptText="raca:" />
-      <JFXTextField fx:id="textFieldObservacao" alignment="BOTTOM_LEFT" labelFloat="true" layoutX="25.0" layoutY="158.0" prefHeight="38.0" prefWidth="529.0" promptText="Observação:" />
+      <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="5.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagens/dog-icon-png-18.jpg" />
+         </image>
+      </ImageView>
+      <JFXTextField fx:id="textFieldId" editable="false" focusColor="#49035e" labelFloat="true" layoutX="44.0" layoutY="21.0" prefHeight="25.0" prefWidth="78.0" promptText="Id:" />
+      <JFXTextField fx:id="textFieldNome" focusColor="#49035e" labelFloat="true" layoutX="171.0" layoutY="21.0" prefHeight="25.0" prefWidth="182.0" promptText="Nome:" />
+      <JFXTextField fx:id="textFieldRaca" focusColor="#49035e" labelFloat="true" layoutX="44.0" layoutY="68.0" prefHeight="25.0" prefWidth="115.0" promptText="raca:" />
+      <JFXTextField fx:id="textFieldObservacao" alignment="BOTTOM_LEFT" focusColor="#49035e" labelFloat="true" layoutX="44.0" layoutY="156.0" prefHeight="38.0" prefWidth="546.0" promptText="Observação:" />
       <Separator layoutX="7.0" layoutY="213.0" prefHeight="2.0" prefWidth="788.0" />
       <TableView fx:id="tabela" layoutX="7.0" layoutY="227.0" prefHeight="409.0" prefWidth="788.0">
         <columns>
@@ -29,26 +37,27 @@
             <TableColumn fx:id="colData" prefWidth="89.0" text="Data:" />
         </columns>
       </TableView>
-      <JFXButton layoutX="593.0" layoutY="175.0" onAction="#salvar" text="Salvar">
+      <JFXButton buttonType="RAISED" layoutX="593.0" layoutY="175.0" onAction="#salvar" text="Salvar">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton layoutX="659.0" layoutY="175.0" onAction="#editar" text="Editar">
+      <JFXButton buttonType="RAISED" layoutX="659.0" layoutY="175.0" onAction="#editar" text="Editar">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton layoutX="721.0" layoutY="175.0" onAction="#excluir" text="Excluir">
+      <JFXButton buttonType="RAISED" layoutX="721.0" layoutY="175.0" onAction="#excluir" text="Excluir">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXComboBox fx:id="comboBoxDono" layoutX="368.0" layoutY="21.0" prefHeight="25.0" prefWidth="204.0" promptText="Dono:" />
-      <JFXComboBox fx:id="comboBoxSexo" layoutX="325.0" layoutY="68.0" prefHeight="25.0" prefWidth="151.0" promptText="Sexo:" />
-      <JFXComboBox fx:id="comboBoxPorte" layoutX="156.0" layoutY="68.0" prefHeight="25.0" prefWidth="151.0" promptText="Porte:" />
-      <JFXButton fx:id="botaopesquisar" layoutX="171.0" layoutY="117.0" onAction="#pesquisar" text="Pesquisar" />
-      <JFXTextField fx:id="pesquisanome" labelFloat="true" layoutX="25.0" layoutY="117.0" promptText="Nome:" />
-      <JFXDatePicker fx:id="datePickerNascimento" layoutX="600.0" layoutY="21.0" promptText="Data: " />
+      <JFXComboBox fx:id="comboBoxDono" focusColor="#49035e" labelFloat="true" layoutX="380.0" layoutY="21.0" prefHeight="25.0" prefWidth="204.0" promptText="Dono:" />
+      <JFXComboBox fx:id="comboBoxSexo" focusColor="#49035e" layoutX="372.0" layoutY="68.0" prefHeight="25.0" prefWidth="151.0" promptText="Sexo:" />
+      <JFXComboBox fx:id="comboBoxPorte" focusColor="#49035e" layoutX="202.0" layoutY="68.0" prefHeight="25.0" prefWidth="151.0" promptText="Porte:" />
+      <JFXButton fx:id="botaopesquisar" layoutX="202.0" layoutY="117.0" onAction="#pesquisar" text="Pesquisar" />
+      <JFXTextField fx:id="pesquisanome" focusColor="#49035e" labelFloat="true" layoutX="44.0" layoutY="117.0" promptText="Nome:" />
+      <JFXDatePicker fx:id="datePickerNascimento" defaultColor="#49035e" layoutX="607.0" layoutY="21.0" promptText="Data: " />
+      <Label layoutX="447.0" layoutY="6.0" prefHeight="17.0" prefWidth="47.0" text="Adoção:" />
    </children>
 </AnchorPane>
