@@ -126,6 +126,7 @@ public class FichaMedicaController implements Initializable {
 
             }
         }
+        textFieldId.setText(" ");
         textAreaAtendimentos.setText("");
         textFieldVeterinario.setText("");
         textFieldObservacao.setText("");

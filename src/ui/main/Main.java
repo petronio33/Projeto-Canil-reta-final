@@ -26,7 +26,7 @@ public class Main extends Application {
         stage.getIcons().add(new Image("/ui/imagens/dog-paw.png"));
         //Abrir maximizado
         //stage.setMaximized(true);
-
+        stage.setResizable(false);
         stage.setTitle("CANIL");
         stage.setScene(scene);
         stage.show();

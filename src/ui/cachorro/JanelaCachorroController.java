@@ -133,6 +133,7 @@ public class JanelaCachorroController implements Initializable {
                 servico.salvar(c);
 
                 mensagemsucesso("Cachorro salvo com sucesso");
+                textFieldId.setText(" ");
                 textFieldNome.setText(" ");
                 textFieldRaca.setText(" ");
                 textFieldObservacao.setText(" ");
@@ -164,6 +165,7 @@ public class JanelaCachorroController implements Initializable {
                 mensagemsucesso("Cachorro Atualizado!");
 
                 //limpar os textos
+                textFieldId.setText(" ");
                 textFieldNome.setText(" ");
                 textFieldRaca.setText(" ");
                 textFieldObservacao.setText(" ");
