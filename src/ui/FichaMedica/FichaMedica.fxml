@@ -14,10 +14,10 @@
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.FichaMedica.FichaMedicaController">
    <children>
       <JFXTextArea fx:id="textFieldObservacao" editable="false" focusColor="#49035e" layoutX="45.0" layoutY="135.0" prefHeight="35.0" prefWidth="559.0" promptText="Obsrvações:" />
-      <JFXTextField fx:id="textFieldSexo" editable="false" focusColor="#49035e" layoutX="45.0" layoutY="85.0" prefHeight="25.0" prefWidth="126.0" promptText="Sexo:" />
-      <JFXTextField fx:id="textFieldPorte" editable="false" focusColor="#49035e" layoutX="207.0" layoutY="85.0" prefHeight="25.0" prefWidth="162.0" promptText="Porte:" />
-      <JFXTextField fx:id="textFieldRaca" editable="false" focusColor="#49035e" layoutX="416.0" layoutY="85.0" prefHeight="25.0" prefWidth="154.0" promptText="Raça:" />
-      <JFXTextArea fx:id="textAreaAtendimentos" focusColor="#49035e" layoutX="42.0" layoutY="182.0" prefHeight="101.0" prefWidth="718.0" promptText="Atendimentos:" />
+      <JFXTextField fx:id="textFieldSexo" editable="false" focusColor="#49035e" labelFloat="true" layoutX="45.0" layoutY="85.0" prefHeight="25.0" prefWidth="126.0" promptText="Sexo:" />
+      <JFXTextField fx:id="textFieldPorte" editable="false" focusColor="#49035e" labelFloat="true" layoutX="207.0" layoutY="85.0" prefHeight="25.0" prefWidth="162.0" promptText="Porte:" />
+      <JFXTextField fx:id="textFieldRaca" editable="false" focusColor="#49035e" labelFloat="true" layoutX="416.0" layoutY="85.0" prefHeight="25.0" prefWidth="154.0" promptText="Raça:" />
+      <JFXTextArea fx:id="textAreaAtendimentos" focusColor="#49035e" labelFloat="true" layoutX="42.0" layoutY="182.0" prefHeight="101.0" prefWidth="718.0" promptText="Atendimentos:" />
       <JFXButton buttonType="RAISED" layoutX="581.0" layoutY="300.0" onAction="#salvar" text="Salvar" />
       <JFXButton buttonType="RAISED" layoutX="652.0" layoutY="300.0" onAction="#editar" text="Editar" />
       <JFXButton buttonType="RAISED" layoutX="710.0" layoutY="300.0" onAction="#excluir" text="Excluir" />
